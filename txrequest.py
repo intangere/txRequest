@@ -31,7 +31,7 @@ class ResponseProtocol(Protocol):
 def cbShutdown(_):
     reactor.stop()
 
-def txRequest(host, callback, num_of_connections=2):
+def txRequest(host, callback, num_of_connections=1):
     agent = Agent(reactor)
     for i in xrange(num_of_connections):
        d = agent.request('GET', host, Headers({'User-Agent': [user_agent]}), None)
